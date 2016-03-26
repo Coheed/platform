@@ -1,0 +1,54 @@
+<VirtualHost *:80>
+    ServerAdmin webmaster@localhost
+    ServerName berkshireinnovationcenter
+    ServerAlias local.berkshireinnovationcenter.com www.local.berkshireinnovationcenter.com
+    DocumentRoot /home/vagrant/www/platform/_www
+
+    SetEnv APP_ENV local
+
+    <Directory /home/vagrant/www/platform/_www>
+            Options Indexes FollowSymLinks MultiViews
+            EnableSendfile Off
+            AllowOverride All
+            Require all granted
+    </Directory>
+
+    ErrorLog ${APACHE_LOG_DIR}/berkshireinnovationcenter_error.log
+
+    # Possible values include: debug, info, notice, warn, error, crit,
+    # alert, emerg.
+    LogLevel error
+
+    CustomLog ${APACHE_LOG_DIR}/resa_access.log combined
+
+</VirtualHost>
+
+<VirtualHost *:443>
+    DocumentRoot "/home/vagrant/www/platform/_www"
+    ServerName berkshireinnovationcenter:443
+    ServerAdmin webmaster@localhost
+    EnableSendfile Off
+    ErrorLog "${APACHE_LOG_DIR}/berkshireinnovationcenter_ssl_error.log"
+    TransferLog "${APACHE_LOG_DIR}/berkshireinnovationcenter_ssl_transfer_access.log"
+
+    SSLEngine on
+    SSLCipherSuite ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv2:+EXP:+eNULL
+
+    SSLCertificateFile    "/home/vagrant/project.crt"
+    SSLCertificateKeyFile "/home/vagrant/project.key"
+
+    <FilesMatch "\.(cgi|shtml|phtml|php)$">
+        SSLOptions +StdEnvVars
+    </FilesMatch>
+
+    <Directory "/home/vagrant/www/platform/_www">
+        Options FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+
+    BrowserMatch ".*MSIE.*" \
+             nokeepalive ssl-unclean-shutdown \
+             downgrade-1.0 force-response-1.0
+
+</VirtualHost>

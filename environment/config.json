@@ -1,0 +1,36 @@
+{
+  "name": "vivid64",
+  "box_url": "https://cloud-images.ubuntu.com/vagrant/vivid/current/vivid-server-cloudimg-amd64-vagrant-disk1.box",
+  "hostname": "berkshireinnovationcenter",
+  "aliases": {
+    // The key is used as a drush alias
+    "berkshireinnovationcenter": "local.berkshireinnovationcenter.com"
+  },
+  "ip": "192.168.44.122",
+  "synced_folder": {
+    "host_path": "./docroot",
+    "guest_path": "/home/vagrant/www"
+  },
+  "synced_scripts": {
+    "host_path": "./fabfile",
+    "guest_path": "/home/vagrant/fabfile"
+  },
+  "vm_gui": false,
+  "vm_name": "berkshireinnovationcenter-vagrant",
+  "ports": {
+    "http_host_varnish": 8087,
+    "http_guest_varnish": 80,
+    "https_host": 8440,
+    "https_guest": 443,
+    "http_guest_apache": 1000,
+    "http_host_apache": 10001
+  },
+
+  "mem": 8096,
+  "cpus": 4,
+  
+  //SET THIS TO TRUE IF YOU'RE ON WINDOWS
+  "nfs": true,
+
+  "rsync_exclude": [".git/", ".vagrant", "*environment.php", "*/img/home/features/", "*/img/landing/features/", "*/img/profiles/", "*/img/system/athletes/", "*/ckfinder/userfiles"]
+}
