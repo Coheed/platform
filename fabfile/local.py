@@ -66,6 +66,6 @@ def setup2():
 def sync():
     with settings(warn_only=True):
         # Install local database from dev server
-        local('echo "drop database berkshireinnovationcenter;" | mysql -uroot')
-        local('echo "create database berkshireinnovationcenter;" | mysql -uroot')
-        local('mysql -u root -p berkshireinnovationcenter --password="" < /home/vagrant/www/sites/local.berkshireinnovationcenter.com/dump.sql')
+        local('cd ~/www/platform/_www && drush @bic._local sql-drop')
+        local('cd ~/www/platform/_www && drush @bic.phase-3 sql-dump | drush @bic._local sqlc')
+
