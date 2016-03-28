@@ -53,7 +53,7 @@ def setup2():
         local('cd ~/www/platform && platform build')
 
 
-        local('mv /home/vagrant/www/settings.local.php  /home/vagrant/www/platform/_www/sites/default/settings.local.php')
+        local('cat /home/vagrant/www/settings.local.php > /home/vagrant/www/platform/.platform/local/shared/settings.local.php')
         local('cd ~/www/platform/_www && drush @bic.phase-3 sql-dump | drush @bic._local sqlc')
 
 
@@ -68,4 +68,5 @@ def sync():
         # Install local database from dev server
         local('cd ~/www/platform/_www && drush @bic._local sql-drop')
         local('cd ~/www/platform/_www && drush @bic.phase-3 sql-dump | drush @bic._local sqlc')
+
 
