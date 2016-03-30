@@ -79,5 +79,6 @@ def sync():
 def update():
     with settings(warn_only=True):
         # Install local database from dev server
-        local('cd ~/www/platform/_www && platform build && drush @bic._local fra -y && drush @bic._local updb -y')
+        local('cd ~/www/platform/ && platform build')
+        local('cd ~/www/platform/_www && drush @bic._local updb -y && drush @bic._local fra -y')
 
