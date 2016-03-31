@@ -22,8 +22,10 @@
     "http_guest_varnish": 80,
     "https_host": 8440,
     "https_guest": 443,
+    "http_host_apache": 10001,
     "http_guest_apache": 1000,
-    "http_host_apache": 10001
+    "http_host_solr": 8081,
+    "http_guest_solr": 8080
   },
 
   "mem": 8096,

@@ -25,6 +25,8 @@ config.vm.provision :shell, inline: "hostnamectl set-hostname berkshire"
     host: vm_config["ports"]["https_host"]
   config.vm.network :forwarded_port, guest: vm_config["ports"]["http_guest_apache"],
     host: vm_config["ports"]["http_host_apache"]
+  config.vm.network :forwarded_port, guest: vm_config["ports"]["http_guest_solr"],
+    host: vm_config["ports"]["http_host_solr"]
 
   config.vm.network :private_network, ip: vm_config["ip"]
 

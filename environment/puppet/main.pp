@@ -22,6 +22,7 @@ node default{
     include base-lamp::memcached
     include base-lamp::sshpass
     include base-lamp::curl
+    include base-lamp::solr
     include base-lamp::cleanup
     include base-lamp::configuration-vagrant
 }
