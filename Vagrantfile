@@ -16,7 +16,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box_url = "http://files.vagrantup.com/precise64.box"
 
   config.vm.box_url = vm_config["box_url"]
-config.vm.provision :shell, inline: "hostnamectl set-hostname berkshire"
+
 
 
   config.vm.network :forwarded_port, guest: vm_config["ports"]["http_guest_varnish"],
@@ -31,8 +31,8 @@ config.vm.provision :shell, inline: "hostnamectl set-hostname berkshire"
   config.vm.network :private_network, ip: vm_config["ip"]
 
   config.hostsupdater.remove_on_suspend = true
-  config.vm.hostname = vm_config["hostname"]
-
+  #config.vm.hostname = vm_config["hostname"]
+  config.vm.provision :shell, inline: "hostnamectl set-hostname berkshire"
   if defined? VagrantPlugins::HostsUpdater
     # Capture the paths to all hostname
     if !vm_config['aliases'].empty?
