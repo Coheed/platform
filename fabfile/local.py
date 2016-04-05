@@ -85,3 +85,17 @@ def update():
         local('cd ~/www/platform/ && platform build')
         local('cd ~/www/platform/_www && drush @bic._local updb -y && drush @bic._local fra -y')
 
+
+
+@task
+def rebuild():
+    with settings(warn_only=True):
+        # Install local database from dev server
+        local('cd ~/www/platform/_www && drush @bic._local sql-drop -y')
+        local('cd ~/www/platform/_www && drush @bic.phase-3 sql-dump | drush @bic._local sqlc')
+        
+        local('sudo chmod 777 -R /home/vagrant/www/platform/.platform/local/builds/default/public')
+        local('sudo rm -rf /home/vagrant/www/platform/.platform/local/builds/default/public')
+        local('cd ~/www/platform/ && platform build')
+        local('cd ~/www/platform/_www && drush @bic._local updb -y && drush @bic._local fra -y')
+
