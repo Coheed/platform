@@ -24,7 +24,7 @@
     "https_guest": 443,
     "http_host_apache": 10001,
     "http_guest_apache": 1000,
-    "http_host_solr": 8081,
+    "http_host_solr": 28081,
     "http_guest_solr": 8080
   },
 
