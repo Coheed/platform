@@ -66,6 +66,8 @@ def setup2():
 
 
 
+
+
 @task
 def sync():
     with settings(warn_only=True):
@@ -95,5 +97,15 @@ def rebuild():
         local('sudo chmod 777 -R /home/vagrant/www/platform/.platform/local/builds/default/public')
         local('sudo rm -rf /home/vagrant/www/platform/.platform/local/builds/default/public')
         local('cd ~/www/platform/ && platform build')
+        local('cd ~/www/platform/_www && drush @bic._local updb -y && drush @bic._local fra -y')
+
+
+
+
+@task
+def revert():
+    with settings(warn_only=True):
+        # Install local database from dev server
+        local("cd ~/www/platform/_www && drush sql-sync @bic.phase-3 @bic._local --create-db -y --source-dump=/tmp/tmp.sql.gz --target-dump=/tmp/tmp.sql.gz")
         local('cd ~/www/platform/_www && drush @bic._local updb -y && drush @bic._local fra -y')
 
