@@ -10,7 +10,7 @@ class base-lamp::solr{
 
     }
 
-    exec{'cd /opt && sudo wget http://archive.apache.org/dist/lucene/solr/4.7.2/solr-4.7.2.tgz && sudo tar -xvf solr-4.7.2.tgz && sudo cp -R solr-4.7.2/example /opt/solr && cd /opt/solr && sudo java -jar start.jar':
+    exec{'wget http://archive.apache.org/dist/lucene/solr/4.7.2/solr-4.7.2.tgz -O /opt/solr-4.7.2.tgz &&  tar -xvf /opt/solr-4.7.2.tgz && cp -R /opt/solr-4.7.2/example /opt/solr && java -jar /opt/start.jar':
 
     }
 
