@@ -54,16 +54,20 @@ def setup2():
 
 
         local('cat /home/vagrant/www/settings.local.php > /home/vagrant/www/platform/.platform/local/shared/settings.local.php')
-        local('cd ~/www/platform/_www && drush @bic.phase-3 sql-dump | drush @bic._local sqlc')
+
 
         local('cd ~/www/platform/ && git config --global user.email "nicholas.kuhn@spi.com"')
         local('cd ~/www/platform/ && git config --global user.name "Nick Kuhn"')
         local('cd ~/www/platform/ && git config --global core.editor "vim"')
 
 
+        local('cd ~/www/platform/ && git config --global core.editor "vim"')
+        local('cd ~ && wget http://archive.apache.org/dist/lucene/solr/4.7.2/solr-4.7.2.tgz && sudo tar -xvf solr-4.7.2.tgz && sudo cp -R solr-4.7.2/example /opt/solr && sudo cp /home/vagrant/solr/conf/* /opt/solr/solr/collection1/conf/ -rf && cd /opt/solr &&  sudo java -jar start.jar &')
+
+
+
+        local("cd ~/www/platform/_www && drush sql-sync @bic.phase-3 @bic._local --create-db -y --source-dump=/tmp/tmp.sql.gz --target-dump=/tmp/tmp.sql.gz")
         #https://github.com/MasterDoublePrime/BIC-project/wiki/Development-With-Platform.sh
-
-
 
 
 
