@@ -15,6 +15,8 @@ ssh-keyscan -H raw.githubusercontent.com >> ~/.ssh/known_hosts
 
 ssh-keyscan -H platform.sh >> ~/.ssh/known_hosts
 
+yes | sudo apt-get install tofrodos  
+
 echo "drop database berkshireinnovationcenter;" | mysql -uroot
 echo "create database berkshireinnovationcenter;" | mysql -uroot
 #mysql -u root -p berkshireinnovationcenter --password="" < /home/vagrant/www/sites/local.berkshireinnovationcenter.com/dump.sql
@@ -22,7 +24,7 @@ echo "create database berkshireinnovationcenter;" | mysql -uroot
 
 curl -sS https://getcomposer.org/installer | php
 sudo mv composer.phar /usr/local/bin/composer
-echo \'export PATH="$PATH:$HOME/.composer/vendor/bin"\' >> ~/.bashrc
+echo 'export PATH="$PATH:$HOME/.composer/vendor/bin"' >> ~/.bashrc
 composer global config minimum-stability dev
 composer global require drush/drush:dev-master
 
