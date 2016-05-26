@@ -28,7 +28,7 @@ composer global require drush/drush:dev-master
 
 curl -sS https://platform.sh/cli/installer | php
 
-
+source .bashrc
 cd ~ && source .bashrc
 cd ~ && platform
 cd ~ && platform get cld2r5664mncw www/platform
