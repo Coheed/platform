@@ -23,6 +23,7 @@ echo "create database berkshireinnovationcenter;" | mysql -uroot
 curl -sS https://getcomposer.org/installer | php
 sudo mv composer.phar /usr/local/bin/composer
 echo \'export PATH="$PATH:$HOME/.composer/vendor/bin"\' >> ~/.bashrc
+composer global config minimum-stability dev
 composer global require drush/drush:dev-master
 
 curl -sS https://platform.sh/cli/installer | php
