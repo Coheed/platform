@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 
 cd ~ && source .bashrc
 cd ~ && platform
