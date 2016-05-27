@@ -41,6 +41,11 @@ def setup():
         local('ssh-keyscan -H platform.sh >> ~/.ssh/known_hosts')
 
         local('ssh-keyscan -H git.us.platform.sh >> ~/.ssh/known_hosts')
+        
+        
+        local('ssh-keyscan -H ssh.us.platform.sh >> ~/.ssh/known_hosts')
+        
+        
                 
 
         
