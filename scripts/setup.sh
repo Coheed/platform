@@ -15,6 +15,9 @@ ssh-keyscan -H raw.githubusercontent.com >> ~/.ssh/known_hosts
 
 ssh-keyscan -H platform.sh >> ~/.ssh/known_hosts
 
+ssh-keyscan -H git.us.platform.sh >> ~/.ssh/known_hosts
+
+
 yes | sudo apt-get install tofrodos  
 
 echo "drop database berkshireinnovationcenter;" | mysql -uroot
