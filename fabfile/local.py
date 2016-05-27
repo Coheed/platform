@@ -22,6 +22,28 @@ from fabric.api import settings
 def setup():
     with settings(warn_only=True):
         # Install local database from dev server
+        
+        
+        
+        
+        local('sudo locale-gen  en_US.UTF-8')
+        local('export LC_ALL="en_US.UTF-8"')
+        local('export LANG="en_US.UTF-8"')
+
+        #so we dont have to type yes
+
+        local('ssh-keyscan -H github.com >> ~/.ssh/known_hosts')
+
+        local('ssh-keyscan -H keys.gnupg.net >> ~/.ssh/known_hosts')
+
+        local('ssh-keyscan -H raw.githubusercontent.com >> ~/.ssh/known_hosts')
+
+        local('ssh-keyscan -H platform.sh >> ~/.ssh/known_hosts')
+
+        local('ssh-keyscan -H git.us.platform.sh >> ~/.ssh/known_hosts')
+                
+
+        
         local('echo "drop database berkshireinnovationcenter;" | mysql -uroot')
         local('echo "create database berkshireinnovationcenter;" | mysql -uroot')
         #local('mysql -u root -p berkshireinnovationcenter --password="" < /home/vagrant/www/sites/local.berkshireinnovationcenter.com/dump.sql')
@@ -30,6 +52,8 @@ def setup():
         local('curl -sS https://getcomposer.org/installer | php')
         local('sudo mv composer.phar /usr/local/bin/composer')
         local('echo \'export PATH="$PATH:$HOME/.composer/vendor/bin"\' >> ~/.bashrc')
+
+        local('composer global config minimum-stability dev')
         local('composer global require drush/drush:dev-master')
 
         local('curl -sS https://platform.sh/cli/installer | php')
