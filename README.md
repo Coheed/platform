@@ -15,6 +15,8 @@
 * vagrant up
 * vagrant reload --provision (do this step if you see red errors.. need to fix this)
 * vagrant ssh
-* ./scripts/setup.sh (say yes to everything / log in when prompted)
+* ./scripts/setup.sh
+* source .bashrc
+* ./scripts/setup2.sh  (say yes to everything / log in when prompted)
 * Visit in your browser: http://local.berkshireinnovationcenter.com (this is just the example project)
 * Thats it!
