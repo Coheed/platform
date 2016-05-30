@@ -13,10 +13,8 @@
 * cp ~/.ssh/id_rsa environment/puppet/modules/base-lamp/files/ssh/ (** ensure your ssh key has been added to your platform.sh account **)
 * vagrant plugin install vagrant-hostsupdater
 * vagrant up
-* vagrant reload --provision (do this step if you see red errors.. need to fix this)
+* vagrant reload
 * vagrant ssh
-* ./scripts/setup.sh
-* source .bashrc
-* ./scripts/setup2.sh  (say yes to everything / log in when prompted)
+* fab local.setup && source .bashrc && fab local.setup2
 * Visit in your browser: http://local.berkshireinnovationcenter.com (this is just the example project)
 * Thats it!
