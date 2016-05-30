@@ -12,8 +12,8 @@
     "guest_path": "/home/vagrant/www"
   },
   "synced_scripts": {
-    "host_path": "./scripts",
-    "guest_path": "/home/vagrant/scripts"
+    "host_path": "./fabfile",
+    "guest_path": "/home/vagrant/fabfile"
   },
   "vm_gui": false,
   "vm_name": "berkshireinnovationcenter-vagrant",

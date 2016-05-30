@@ -60,6 +60,13 @@ def setup():
 
         local('composer global config minimum-stability dev')
         local('composer global require drush/drush:dev-master')
+        local('composer global require drupal/coder')
+        local('export PATH="$PATH:$HOME/.composer/vendor/bin"')
+        
+        local('phpcs --config-set installed_paths ~/.composer/vendor/drupal/coder/coder_sniffer')
+        
+        
+        
 
         local('curl -sS https://platform.sh/cli/installer | php')
 
@@ -131,6 +138,8 @@ def rebuild():
         local('sudo rm -rf /home/vagrant/www/platform/.platform/local/builds/default/public')
         local('cd ~/www/platform/ && platform build')
         local('cd ~/www/platform/_www && drush @bic._local updb -y && drush @bic._local fra -y')
+        local('cd ~/www/platform/_www && phpcbf')
+         
 
 
 
@@ -141,4 +150,21 @@ def revert():
         # Install local database from dev server
         local("cd ~/www/platform/_www && drush sql-sync @bic.phase-3 @bic._local --create-db -y --source-dump=/tmp/tmp.sql.gz --target-dump=/tmp/tmp.sql.gz")
         local('cd ~/www/platform/_www && drush @bic._local updb -y && drush @bic._local fra -y')
+        
 
+
+
+@task
+def fix():
+    with settings(warn_only=True):
+        # Install local database from dev server
+        local('cd ~/www/platform/_www && phpcbf')
+        
+        
+@task
+def check():
+    with settings(warn_only=True):
+        # Install local database from dev server
+        local('cd ~/www/platform/_www && phpcs')
+        
+        
