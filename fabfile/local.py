@@ -56,14 +56,15 @@ def setup():
 
         local('curl -sS https://getcomposer.org/installer | php')
         local('sudo mv composer.phar /usr/local/bin/composer')
-        local('echo \'export PATH="$PATH:$HOME/.composer/vendor/bin"\' >> ~/.bashrc')
+        local('echo \'export PATH="$PATH:$HOME/vendor/bin"\' >> ~/.bashrc')
 
-        local('composer global config minimum-stability dev')
+        #local('composer global config minimum-stability dev')
         local('composer require drush/drush')
         local('composer global require drupal/coder')
-        local('export PATH="$PATH:$HOME/.composer/vendor/bin"')
+        local('export PATH="$PATH:$HOME/vendor/bin"')
+        local('export PATH="$PATH:$HOME/.config/composer/vendor/bin"')
         
-        local('phpcs --config-set installed_paths ~/.composer/vendor/drupal/coder/coder_sniffer')
+        local('phpcs --config-set installed_paths ~/.config/composer/vendor/drupal/coder/coder_sniffer')
         
         
         
