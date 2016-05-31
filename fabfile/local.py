@@ -56,7 +56,7 @@ def setup():
 
         local('curl -sS https://getcomposer.org/installer | php')
         local('sudo mv composer.phar /usr/local/bin/composer')
-        local('echo \'export PATH="$PATH:$HOME/vendor/bin"\' >> ~/.bashrc')
+        local('echo \'export PATH="$PATH:$HOME/vendor/bin:$HOME/.config/composer/vendor/bin"\' >> ~/.bashrc')
 
         #local('composer global config minimum-stability dev')
         local('composer require drush/drush')
@@ -64,7 +64,7 @@ def setup():
         local('export PATH="$PATH:$HOME/vendor/bin"')
         local('export PATH="$PATH:$HOME/.config/composer/vendor/bin"')
         
-        local('phpcs --config-set installed_paths ~/.config/composer/vendor/drupal/coder/coder_sniffer')
+        
         
         
         
@@ -79,6 +79,7 @@ def setup():
 def setup2():
     with settings(warn_only=True):
         local('cd ~ && source .bashrc')
+        local('phpcs --config-set installed_paths ~/.config/composer/vendor/drupal/coder/coder_sniffer')
         local('cd ~ && platform')
         local('cd ~ && platform get cld2r5664mncw www/platform')
         local('cd ~/www/platform && platform drush-aliases -g bic')
