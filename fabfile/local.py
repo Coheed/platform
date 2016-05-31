@@ -59,7 +59,7 @@ def setup():
         local('echo \'export PATH="$PATH:$HOME/.composer/vendor/bin"\' >> ~/.bashrc')
 
         local('composer global config minimum-stability dev')
-        local('composer global require drush/drush:dev-master')
+        local('composer require drush/drush')
         local('composer global require drupal/coder')
         local('export PATH="$PATH:$HOME/.composer/vendor/bin"')
         
