@@ -81,6 +81,8 @@ def setup():
 def setup2():
     with settings(warn_only=True):
         local('cd ~ && source .bashrc')
+        local('ln -s ~/.config/composer ~/.composer')
+        
         local('phpcs --config-set installed_paths ~/.config/composer/vendor/drupal/coder/coder_sniffer')
         local('cd ~ && platform')
         local('cd ~ && platform get cld2r5664mncw www/platform')
