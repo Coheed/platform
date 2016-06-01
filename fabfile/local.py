@@ -56,7 +56,7 @@ def setup():
 
         local('curl -sS https://getcomposer.org/installer | php')
         local('sudo mv composer.phar /usr/local/bin/composer')
-        local('echo \'export PATH="$PATH:$HOME/vendor/bin:$HOME/.config/composer/vendor/bin"\' >> ~/.bashrc')
+        
 
         #local('composer global config minimum-stability dev')
         local('composer require drush/drush')
@@ -70,6 +70,8 @@ def setup():
         
 
         local('curl -sS https://platform.sh/cli/installer | php')
+        
+        local('echo \'export PATH="$PATH:$HOME/vendor/bin:$HOME/.config/composer/vendor/bin"\' >> ~/.bashrc')
 
         #https://github.com/MasterDoublePrime/BIC-project/wiki/Development-With-Platform.sh
 
@@ -134,10 +136,13 @@ def update():
 def rebuild():
     with settings(warn_only=True):
         # Install local database from dev server
-        
+        local('sudo service apache2 stop')
+        local('sudo service mysql stop')
         local('sudo chmod 777 -R /home/vagrant/www/platform/.platform/local/builds/default/public')
         local('sudo rm -rf /home/vagrant/www/platform/.platform/local/builds/default/public')
         local('cd ~/www/platform/ && platform build')
+        local('sudo service apache2 start')
+        local('sudo service mysql start')
         local("cd ~/www/platform/_www && drush sql-sync @bic.phase-3 @bic._local --create-db -y --source-dump=/tmp/tmp.sql.gz --target-dump=/tmp/tmp.sql.gz")
         local('cd ~/www/platform/_www && drush @bic._local updb -y && drush @bic._local fra -y')
         local('cd ~/www/platform/_www && phpcbf')

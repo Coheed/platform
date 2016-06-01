@@ -38,15 +38,14 @@ composer global require drupal/coder
 export PATH="$PATH:$HOME/vendor/bin"
 export PATH="$PATH:$HOME/.config/composer/vendor/bin"
 
-phpcs --config-set installed_paths ~/.config/composer/vendor/drupal/coder/coder_sniffer
-
 
 curl -sS https://platform.sh/cli/installer | php
 
+echo 'export PATH="$PATH:$HOME/vendor/bin:$HOME/.config/composer/vendor/bin"' >> ~/.bashrc
+
+phpcs --config-set installed_paths ~/.config/composer/vendor/drupal/coder/coder_sniffer
 
 cd ~ && source .bashrc
-cd ~ && source .bashrc
-cd ~ && bash source .bashrc
 cd ~ && platform
 cd ~ && platform get cld2r5664mncw www/platform
 cd ~/www/platform && platform drush-aliases -g bic
