@@ -17,7 +17,7 @@ $conf['preprocess_js'] = 0;
 
 $conf['search_api_override_mode'] = 'load';
 $conf['search_api_override_servers'] = array(
-  'solr_service' => array(
+  'solr' => array(
     'name' => 'Solr service (overriden)',
     'options' => array(
       'host' => 'localhost',
