@@ -174,6 +174,12 @@ def fix():
 def check():
     with settings(warn_only=True):
         # Install local database from dev server
-        local('cd ~/www/platform/_www && phpcs')
+        local('cd ~/www/platform/_www && phpcs')        
+@task
+def start():
+    with settings(warn_only=True):
+        # Install local database from dev server
+        local('cd /opt/solr &&  sudo java -jar start.jar &')
+        
         
         
