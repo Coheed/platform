@@ -146,7 +146,7 @@ def rebuild():
         local('sudo service apache2 start')
         local('sudo service mysql start')
         local("cd ~/www/platform/_www && drush sql-sync @bic.phase-3 @bic._local --create-db -y --source-dump=/tmp/tmp.sql.gz --target-dump=/tmp/tmp.sql.gz")
-        local('cd ~/www/platform/_www && drush @bic._local updb -y && drush @bic._local fra -y')
+        local('cd ~/www/platform/_www && drush @bic._local updb -y && drush @bic._local cc all && drush @bic._local fra -y && drush @bic._local cc all')
         local('cd ~/www/platform/_www && phpcbf')
          
 
