@@ -168,7 +168,7 @@ def fix():
     with settings(warn_only=True):
         # Install local database from dev server
         local('cd ~/www/platform/_www && phpcbf')
-        
+        local('chmod 644 -R ~/www/platform/modules/custom')
         
 @task
 def check():
