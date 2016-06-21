@@ -60,6 +60,11 @@ cd ~/www/platform && platform build
 cat /home/vagrant/www/settings.local.php > /home/vagrant/www/platform/.platform/local/shared/settings.local.php
 
 
+curl -sL https://deb.nodesource.com/setup | sudo bash - && yes | sudo apt-get install nodejs
+sudo npm install -g grunt-cli
+cd cd ~/www/platform/_www/sites/all/themes/bic && yes | npm install
+
+
 cd ~/www/platform/ && git config --global user.email "nicholas.kuhn@spi.com"
 cd ~/www/platform/ && git config --global user.name "Nick Kuhn"
 cd ~/www/platform/ && git config --global core.editor "vim"
