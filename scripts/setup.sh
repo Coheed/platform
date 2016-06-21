@@ -46,6 +46,13 @@ echo 'export PATH="$PATH:$HOME/vendor/bin:$HOME/.config/composer/vendor/bin"' >>
 phpcs --config-set installed_paths ~/.config/composer/vendor/drupal/coder/coder_sniffer
 
 cd ~ && source .bashrc
+cd ~ && chmod 777 .bashrc && ./.bashrc
+
+
+
+ln -s ~/.config/composer ~/.composer
+
+phpcs --config-set installed_paths ~/.config/composer/vendor/drupal/coder/coder_sniffer
 cd ~ && platform
 cd ~ && platform get cld2r5664mncw www/platform
 cd ~/www/platform && platform drush-aliases -g bic
@@ -57,8 +64,9 @@ cd ~/www/platform && git fetch --all
 cd ~/www/platform && platform build
 
 
-cat /home/vagrant/www/settings.local.php > /home/vagrant/www/platform/.platform/local/shared/settings.local.php
 
+
+cat /home/vagrant/www/settings.local.php > /home/vagrant/www/platform/.platform/local/shared/settings.local.php
 
 curl -sL https://deb.nodesource.com/setup | sudo bash - && yes | sudo apt-get install nodejs
 sudo npm install -g grunt-cli
@@ -71,7 +79,7 @@ cd ~/www/platform/ && git config --global core.editor "vim"
 
 
 cd ~/www/platform/ && git config --global core.editor "vim"
-cd ~ && wget http://archive.apache.org/dist/lucene/solr/4.7.2/solr-4.7.2.tgz && sudo tar -xvf solr-4.7.2.tgz && sudo cp -R solr-4.7.2/example /opt/solr && sudo cp /home/vagrant/solr/conf/* /opt/solr/solr/collection1/conf/ -rf && cd /opt/solr &&  sudo java -jar start.jar &
+cd ~ && wget http://archive.apache.org/dist/lucene/solr/4.7.2/solr-4.7.2.tgz && sudo tar -xvf solr-4.7.2.tgz && sudo cp -R solr-4.7.2/example /opt/solr && sudo cp /home/vagrant/www/solr/conf/* /opt/solr/solr/collection1/conf/ -rf && cd /opt/solr &&  sudo java -jar start.jar &
 
 
 
