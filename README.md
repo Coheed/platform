@@ -15,6 +15,6 @@
 * vagrant up
 * vagrant reload
 * vagrant ssh
-* fab local.setup && source .bashrc && fab local.setup2
+* source ./scripts/setup.sh
 * Visit in your browser: http://local.berkshireinnovationcenter.com (this is just the example project)
 * Thats it!
