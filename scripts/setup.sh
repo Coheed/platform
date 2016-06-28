@@ -41,17 +41,24 @@ composer global require drupal/coder
 export PATH="$PATH:$HOME/vendor/bin"
 export PATH="$PATH:$HOME/.config/composer/vendor/bin"
 
+#ruby for compass
+gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+curl -sSL https://get.rvm.io | bash -s stable
+
+
 
 
 curl -sS https://platform.sh/cli/installer | php
 
-echo 'export PATH="$PATH:$HOME/vendor/bin:$HOME/.config/composer/vendor/bin"' >> ~/.bashrc
+echo 'export PATH="$PATH:$HOME/vendor/bin:$HOME/.config/composer/vendor/bin:$HOME/.rvm/scripts"' >> ~/.bashrc
 
 
-
-cd ~ && source .bashrc
 cd ~ && chmod 777 .bashrc && ./.bashrc
 ln -s ~/.config/composer ~/.composer
+
+#ruby part 2
+rvm install ruby-1.9.3-p551
+rvm use ruby-1.9.3-p551
 
 phpcs --config-set installed_paths ~/.config/composer/vendor/drupal/coder/coder_sniffer
 cd ~ && platform
@@ -69,8 +76,8 @@ cat /home/vagrant/www/settings.local.php > /home/vagrant/www/platform/.platform/
 
 curl -sL https://deb.nodesource.com/setup | sudo bash - && yes | sudo apt-get install nodejs
 
-sudo npm install -g grunt-cli compass  bower
-cd ~/www/platform/_www/sites/all/themes/bic && yes | npm install
+sudo npm install -g grunt-cli   bower
+cd ~/www/platform/themes/custom/bic && yes | npm install && bundle install
 
 
 
