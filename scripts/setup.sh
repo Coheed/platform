@@ -43,9 +43,6 @@ export PATH="$PATH:$HOME/.config/composer/vendor/bin"
 
 
 
-
-
-
 curl -sS https://platform.sh/cli/installer | php
 
 echo 'export PATH="$PATH:$HOME/vendor/bin:$HOME/.config/composer/vendor/bin"' >> ~/.bashrc
@@ -72,7 +69,7 @@ cat /home/vagrant/www/settings.local.php > /home/vagrant/www/platform/.platform/
 
 curl -sL https://deb.nodesource.com/setup | sudo bash - && yes | sudo apt-get install nodejs
 
-sudo npm install -g grunt-cli  bower
+sudo npm install -g grunt-cli compass  bower
 cd ~/www/platform/_www/sites/all/themes/bic && yes | npm install
 
 
