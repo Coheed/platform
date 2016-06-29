@@ -45,16 +45,12 @@ export PATH="$PATH:$HOME/.config/composer/vendor/bin"
 #ruby for compass
 gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 curl -sSL https://get.rvm.io | bash -s stable
-
-
+cd ~ && . ./.rvm/scripts/rvm
 
 
 curl -sS https://platform.sh/cli/installer | php
 
 echo 'export PATH="$PATH:$HOME/vendor/bin:$HOME/.config/composer/vendor/bin:$HOME/.rvm/scripts"' >> ~/.bashrc
-source rvm
-./rvm
-bash rvm
 
 cd ~ && chmod 777 .bashrc && ./.bashrc
 ln -s ~/.config/composer ~/.composer
@@ -64,6 +60,7 @@ rvm install 2.2.3-named
 rvm use 2.2.3-named
 gem install bundler compass
 
+#code sniffer
 phpcs --config-set installed_paths ~/.config/composer/vendor/drupal/coder/coder_sniffer
 cd ~ && platform
 cd ~ && platform get cld2r5664mncw www/platform
