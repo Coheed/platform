@@ -20,6 +20,7 @@ node default{
     #include base-lamp::drush
     include base-lamp::drupal
     include base-lamp::memcached
+    include base-lamp::phpmyadmin
     include base-lamp::sshpass
     include base-lamp::curl
     include base-lamp::solr

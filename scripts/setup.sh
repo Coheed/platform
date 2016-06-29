@@ -26,6 +26,7 @@ ssh-keyscan -H ssh.us.platform.sh >> ~/.ssh/known_hosts
     
 
 
+
 echo "drop database berkshireinnovationcenter;" | mysql -uroot
 echo "create database berkshireinnovationcenter;" | mysql -uroot
 #mysql -u root -p berkshireinnovationcenter --password="" < /home/vagrant/www/sites/local.berkshireinnovationcenter.com/dump.sql
@@ -85,11 +86,14 @@ sudo npm install -g grunt-cli   bower
 cd ~/www/platform/themes/custom/bic && yes | npm install && bundle install
 
 
-
+#these need to be done differently
 cd ~/www/platform/ && git config --global user.email "nicholas.kuhn@spi.com"
 cd ~/www/platform/ && git config --global user.name "Nick Kuhn"
 cd ~/www/platform/ && git config --global core.editor "vim"
 
+
+#add phpmyadmin
+sudo ln -s /home/vagrant/phpmyadmin /home/vagrant/www/platform/phpmyadmin
 
 cd ~/www/platform/ && git config --global core.editor "vim"
 cd ~ && wget http://archive.apache.org/dist/lucene/solr/4.7.2/solr-4.7.2.tgz && sudo tar -xvf solr-4.7.2.tgz && sudo cp -R solr-4.7.2/example /opt/solr && sudo cp /home/vagrant/www/solr/conf/* /opt/solr/solr/collection1/conf/ -rf && cd /opt/solr &&  sudo java -jar start.jar &
