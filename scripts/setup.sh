@@ -52,7 +52,7 @@ curl -sS https://platform.sh/cli/installer | php
 
 echo 'export PATH="$PATH:$HOME/vendor/bin:$HOME/.config/composer/vendor/bin:$HOME/.rvm/scripts"' >> ~/.bashrc
 
-cd ~ && chmod 777 .bashrc && ./.bashrc
+cd ~ && chmod 777 .bashrc && . ./.bashrc
 ln -s ~/.config/composer ~/.composer
 
 #ruby part 2
