@@ -80,7 +80,7 @@ curl -sL https://deb.nodesource.com/setup | sudo bash - && yes | sudo apt-get in
 sudo npm install -g grunt-cli   bower
 
 
-cd ~/www/platform/themes/custom/bic && yes | npm install && bower install && bundle install development
+cd ~/www/platform/themes/custom/bic && yes | npm install && bower install && bundle install --without production
 
 
 #these need to be done differently
