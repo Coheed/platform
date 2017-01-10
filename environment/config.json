@@ -28,8 +28,8 @@
     "http_guest_solr": 8080
   },
 
-  "mem": 8096,
-  "cpus": 4,
+  "mem": 4096,
+  "cpus": 2,
   
   //SET THIS TO TRUE IF YOU'RE ON WINDOWS
   "nfs": true,
