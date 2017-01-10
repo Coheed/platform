@@ -23,7 +23,7 @@ ssh-keyscan -H git.us.platform.sh >> ~/.ssh/known_hosts
 ssh-keyscan -H ssh.us.platform.sh >> ~/.ssh/known_hosts
 
 
-    
+chmod 777 ~/www -R
 
 
 
