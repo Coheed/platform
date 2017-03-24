@@ -58,7 +58,8 @@ ln -s ~/.config/composer ~/.composer
 #ruby part 2
 rvm install 2.2.3-named
 rvm use 2.2.3-named
-gem install bundler compass
+gem install bundler -v 1.7.4
+gem install compass
 
 #code sniffer
 phpcs --config-set installed_paths ~/.config/composer/vendor/drupal/coder/coder_sniffer

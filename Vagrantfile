@@ -19,13 +19,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
 
 
-  config.vm.network :forwarded_port, guest: vm_config["ports"]["http_guest_varnish"],
+  config.vm.network :forwarded_port, host_ip: "127.0.0.1", guest: vm_config["ports"]["http_guest_varnish"],
     host: vm_config["ports"]["http_host_varnish"]
-  config.vm.network :forwarded_port, guest: vm_config["ports"]["https_guest"],
+  config.vm.network :forwarded_port, host_ip: "127.0.0.1", guest: vm_config["ports"]["https_guest"],
     host: vm_config["ports"]["https_host"]
-  config.vm.network :forwarded_port, guest: vm_config["ports"]["http_guest_apache"],
+  config.vm.network :forwarded_port, host_ip: "127.0.0.1", guest: vm_config["ports"]["http_guest_apache"],
     host: vm_config["ports"]["http_host_apache"]
-  config.vm.network :forwarded_port, guest: vm_config["ports"]["http_guest_solr"],
+  config.vm.network :forwarded_port, host_ip: "127.0.0.1", guest: vm_config["ports"]["http_guest_solr"],
     host: vm_config["ports"]["http_host_solr"]
 
   config.vm.network :private_network, ip: vm_config["ip"]
